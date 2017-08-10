@@ -18,6 +18,14 @@
     <%= flash[:alert] %>
     <% end %>
 
+
+
+    <%= link_to "jQuety1", jquery_1_path %> $$
+    <%= link_to "jQuety2", jquery_2_path %> $$
+    <%= link_to "jQuety3", jquery_3_path %> $$
+    <%= link_to "jQuety4", jquery_4_path %> $$
+    <%= link_to "jQuety5", jquery_5_path %> $$
+
     <% if current_user %>
       <%= link_to('登出', destroy_user_session_path, :method => :delete) %>
       <%= link_to('修改密码', edit_registration_path(:user)) %>
@@ -25,12 +33,7 @@
       <%= link_to('注册', new_registration_path(:user))%>
       <%= link_to('登入',new_session_path(:user))%>
     <% end %>
-
-    <%= link_to "jQuety1", jquery_1_path %> $$
-    <%= link_to "jQuety2", jquery_2_path %> $$
-    <%= link_to "jQuety3", jquery_3_path %> $$
-    <%= link_to "jQuety4", jquery_4_path %> $$
-    <%= link_to "jQuety5", jquery_5_path %> $$
+    
     <%= yield %>
   </body>
 </html>
