@@ -16,18 +16,35 @@
 </div>
 
 <script>
-	$(".delete-post").click(function(evt){
-		evt.preventDefault();
-		var url = $(this).attr("href");
+	var current_post_id = <%= @posts.last.id %>;
 
-		// 送出ajax
-		$.ajax({
-			url: url,
-			method: 'DELETE',
-			dataType: 'json',
-			success: function(data){
-				$("#post-" + data["id"]).remove();
+	$(window).scroll(function(){
+		if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+			var url = "/posts?max_id=" + current_post_id;
+			if (url) {
+				$.ajax({
+					method: "GET",
+					url: url,
+					dataType: "script"
+				})
 			}
-		})
+		} else {
+			console.log("data ended")
+		}
 	})
+
+	// $(".delete-post").click(function(evt){
+	// 	evt.preventDefault();
+	// 	var url = $(this).attr("href");
+	//
+	// 	// 送出ajax
+	// 	$.ajax({
+	// 		url: url,
+	// 		method: 'DELETE',
+	// 		dataType: 'json',
+	// 		success: function(data){
+	// 			$("#post-" + data["id"]).remove();
+	// 		}
+	// 	})
+	// })
 </script>
